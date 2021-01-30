@@ -1,0 +1,22 @@
+
+Note :- Function must be Call in Appdelegate Did finish Launching Method
+
+func setUpSideMenu()
+
+    {
+
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let home = mainStoryboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+        let homeNavigation = UINavigationController(rootViewController: home)
+        let sideMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        
+        let controller = LGSideMenuController.init(rootViewController: homeNavigation, leftViewController: sideMenuVC, rightViewController: nil)
+        
+        controller.leftViewWidth = 280
+        
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+        
+        
+    }
